@@ -48,24 +48,24 @@ class Person {
   getWeight() {
     return this.weight;
   }
-  greet(){
+  greet() {
     console.log(`Hi, ${this.name}`);
   }
-  eat(){
+  eat() {
     this.weight++;
     this.mood++;
   }
-  exercise(){
+  exercise() {
     this.weight--;
   }
-  ageUp(){
+  ageUp() {
     this.age++;
     this.height++;
     this.weight++;
     this.mood--;
-    this.bankAccount+10;
+    this.bankAccount + 10;
   }
-  buyHamster(hamsterName){
+  buyHamster(hamsterName) {
     const hamster = new Hamster(this.name, hamsterName);
     this.hamsters.push(hamster);
     this.mood++;
@@ -80,11 +80,11 @@ console.log(person1);
 console.log("Create a story with your Person class");
 // ** Create a story with your Person class -----------------------------------------------
 //Instantiate a new Person named Timmy
-const timmy = new Person ("Timmy")
+const timmy = new Person("Timmy");
 //Age Timmy five years
 console.log(timmy);
 for (let i = 0; i < 5; i++) {
-  timmy.ageUp(); 
+  timmy.ageUp();
 }
 console.log(timmy);
 //At this point Timmy's a little bummed. As a precocious child, he feels he's "seen it all" already. Have him eat five times.
@@ -102,7 +102,7 @@ for (let i = 0; i < 9; i++) {
   timmy.ageUp();
 }
 //Create a hamster named "Gus",Set Gus's owner to the string "Timmy"
-const hamsterGus = new Hamster('Timmy',"Gus");
+const hamsterGus = new Hamster("Timmy", "Gus");
 console.log(hamsterGus);
 // ? Have Timmy "buy" Gus
 timmy.buyHamster(hamsterGus);
@@ -121,3 +121,26 @@ console.log(timmy);
 for (let i = 0; i < 2; i++) {
   timmy.exercise();
 }
+
+// ***** Chef Make Dinners
+class Dinner {
+  constructor(appetizer = '', entree ='', dessert='') {
+    this.appetizer = appetizer;
+    this.entree = entree;
+    this.dessert = dessert;
+  }
+}
+
+class Chef {
+  createDinner(appetizer,entree,dessert){
+    return new Dinner(appetizer, entree, dessert);
+  }
+}
+
+const chef1 = new Chef();
+const dinner1 = chef1.createDinner('mushroom soup', 'salmon','tres leches');
+console.log(dinner1);
+const dinner2 = chef1.createDinner('Fish and Chips', 'Lobster Pasta', 'Double Chocolate Layered Cake');
+console.log(dinner2);
+const dinner3 = chef1.createDinner('watercress salad', 'braised beef noodle soup', 'coconut pudding with red beans')
+console.log(dinner3);
